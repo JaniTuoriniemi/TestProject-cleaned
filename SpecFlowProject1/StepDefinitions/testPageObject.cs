@@ -115,7 +115,7 @@ namespace CalculatorSelenium.Specs.PageObjects
             Actions action = new Actions(_webDriver);
             int slidersizewidth = PriceSlider.Size.Width;
             action.ClickAndHold(PriceSlider);
-            action.MoveByOffset(-120, 0).Build().Perform();
+            action.MoveByOffset(-322, 0).Build().Perform();
         }
 
         public void StatePassWord(string word)

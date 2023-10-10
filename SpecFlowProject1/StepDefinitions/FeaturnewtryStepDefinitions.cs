@@ -15,6 +15,8 @@ namespace SpecFlowProject1.StepDefinitions
         {
             _calculatorPageObject = new CalculatorPageObject(browserDriver.Current);
         }
+        //This is är test1.It tests the steps 1-4 in Test scenario 2.
+
         [Given(@"Webbläsaren är oinloggad på ta emot sidan:")]
         public void GivenWebblasarenArOinloggadPaTaEmotSidan()
         {
@@ -52,7 +54,7 @@ namespace SpecFlowProject1.StepDefinitions
                 actualResult2.Should().Be(desired_page2);
             }
         }
-
+        //This is är test2.It tests the steps 6-7b-9 in Test scenario 2.
         [Given(@"webläsaren är åter på ta emot sidan:")]
         public void GivenWeblasarenArAterPaTaEmotSidan()
         {//_calculatorPageObject.GotoPage1();
@@ -85,30 +87,26 @@ namespace SpecFlowProject1.StepDefinitions
         [Given(@"webbläsaren är utloggad:")]
         public void GivenWebblasarenArUtloggad()
         {
-            _calculatorPageObject.GotoPage2();
-            _calculatorPageObject.ClickNästaButtonLämna();
+            throw new PendingStepException();
+
+
         }
 
         [When(@"QR koden skannas och webläsaren tas till https://reink\.se/book/register-qr\?QrCode=eebe(.*)(.*)ce(.*)-a(.*)(.*)f(.*)ef(.*)cd:")]
         public void WhenQRKodenSkannasOchWeblasarenTasTillHttpsReink_SeBookRegister_QrQrCodeEebece_Afefcd(Decimal p0, int p1, Decimal p2, Decimal p3, Decimal p4, int p5, Decimal p6)
         {
-            
-            string word = "Koopa11Kiipa";
-            string number = "730622401";
-            _calculatorPageObject.StatePhoneNumber(number);
 
-            _calculatorPageObject.StatePassWord(word);
-            _calculatorPageObject.ClickLoginButton();
+            throw new PendingStepException();
         }
 
         [Then(@"det ska stå ""([^""]*)"":")]
         public void ThenDetSkaSta(string p0)
         {
-            string desired_page = "https://reink.se/book/leave-book-on-map?code=eebe74a8-56ce-4e10-a8a2-6e4f6ef6c8cd";
-            string actualResult = _calculatorPageObject.CurrentURL();
-            actualResult.Should().Be(desired_page);
-        }
+            throw new PendingStepException();
 
+           
+        }
+        //This is är test4.It tests the steps 9-7b-10 in Test scenario 2.
         [Given(@"webläsaren står på ""([^""]*)"" sidan:")]
         public void GivenWeblasarenStarPaSidan(string p0)
         {
@@ -130,8 +128,8 @@ namespace SpecFlowProject1.StepDefinitions
             string price = "1";
             // _calculatorPageObject.StatePrice(price);
             _calculatorPageObject.MoveSlider();
-            _calculatorPageObject.ClickBetalaSwish();
             _calculatorPageObject.StateSwishnumber(phone);
+            _calculatorPageObject.ClickBetalaSwish();
         }
 
         [Then(@"jag är klar"" sidan ska visas:")]
@@ -145,31 +143,43 @@ namespace SpecFlowProject1.StepDefinitions
         [When(@"Nästa klickas:")]
         public void WhenNastaKlickas()
         {
+
             throw new PendingStepException();
         }
 
         [Then(@"Betalasidan ska visas:")]
         public void ThenBetalasidanSkaVisas()
         {
-            throw new PendingStepException();
-        }
 
+            throw new PendingStepException();
+
+        }
+        //This is är test6.It tests the steps 6-10 in Test scenario 2.
         [Given(@"webläsaren är på ""([^""]*)"" sidan:")]
         public void GivenWeblasarenArPaSidan(string betala)
         {
-            throw new PendingStepException();
+            _calculatorPageObject.GotoPage2();
+            _calculatorPageObject.ClickNästaButtonLämna();
+            
         }
 
         [When(@"sätt prist till (.*) kr:")]
         public void WhenSattPristTillKr(int p0)
         {
-            throw new PendingStepException();
+            string word = "Koopa11Kiipa";
+            string number = "730622401";
+            _calculatorPageObject.StatePhoneNumber(number);
+
+            _calculatorPageObject.StatePassWord(word);
+            _calculatorPageObject.ClickLoginButton();
         }
 
         [Then(@"Betalningen ska vara klar:")]
         public void ThenBetalningenSkaVaraKlar()
         {
-            throw new PendingStepException();
+            string desired_page = "https://reink.se/account/payment-swish?BookId=6c6d0395-c667-4bf9-b5f5-0d13ca706b27";
+            string actualResult = _calculatorPageObject.CurrentURL();
+            actualResult.Should().Contain(desired_page);
         }
     }
 }
